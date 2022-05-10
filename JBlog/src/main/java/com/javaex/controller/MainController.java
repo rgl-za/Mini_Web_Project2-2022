@@ -2,6 +2,7 @@ package com.javaex.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,5 +27,22 @@ public class MainController {
 		mav.addObject("catelist", blogService.cateList());
 		mav.setViewName("blog/blog-main");
 		return mav;
-	} 
+	}
+	
+	
+	@RequestMapping(value="/{id}/admin/{url}")
+	public String blog(@PathVariable("url") String url) {
+		System.out.println(url);
+		if(url.equals("basic")) {
+			return "blog/admin/blog-admin-basic";
+		}
+		if(url.equals("category")) {
+			System.out.println(url);
+			return "blog/admin/blog-admin-cate";
+		}
+		else{
+			return "blog/admin/blog-admin-write";
+		}
+	}
+	
 }

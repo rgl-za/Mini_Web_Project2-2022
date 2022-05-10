@@ -15,16 +15,18 @@
 		
 		<!-- 블로그 해더 -->
 		<div id="header">
-			<h1><a href="">홍길동 님의 블로그 입니다.</a></h1>
+			<h1><a href="">${authUser.userName }님의 블로그 입니다.</a></h1>
 			<ul>
-				<!-- 로그인 전 메뉴 -->
-				<li><a href="">로그인</a></li>
-				
-				<!-- 로그인 후 메뉴 -->
-				<!-- 
-				<li><a href="">로그아웃</a></li>
-				<li><a href="">내블로그 관리</a></li>
-				 -->		
+				<c:choose>
+					<c:when test="${authUser == null }">
+						<!-- 로그인 전 -->
+						<li><a href="">로그인</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="">로그아웃</a></li>
+						<li><a href="${authUser.id}/admin/basic">내블로그 관리</a></li>
+					</c:otherwise>
+				</c:choose>		
 			</ul>
 		</div>
 
@@ -32,9 +34,9 @@
 		<div id="wrapper">
 			<div id="content" class="full-screen">
 				<ul class="admin-menu">
-					<li><a href="">기본설정</a></li>
+					<li><a href="${authUser.id}/admin/basic">기본설정</a></li>
 					<li class="selected"><a href="">카테고리</a></li>
-					<li><a href="">글작성</a></li>
+					<li><a href="${authUser.id}/admin/write">글작성</a></li>
 				</ul>
 				
 		      	<table class="admin-cat">

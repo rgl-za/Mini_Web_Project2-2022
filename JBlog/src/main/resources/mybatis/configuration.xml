@@ -12,6 +12,8 @@
   
   	<typeAliases>
 		<typeAlias alias="insertUserVo" type="com.javaex.vo.UserVo"></typeAlias>
+		<typeAlias alias="postlist" type="com.javaex.vo.PostVo"></typeAlias>
+		<typeAlias alias="catelist" type="com.javaex.vo.CateVo"></typeAlias>
 	</typeAliases>
 	<mappers>	
 		<mapper resource="mybatis/mappers/user.xml" />

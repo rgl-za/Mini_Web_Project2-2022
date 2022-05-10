@@ -14,7 +14,7 @@ public class BlogDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<BlogVo> contentList(BlogVo blogVo){
+	public List<BlogVo> contentList(){
 		System.out.println(sqlSession);
 		return sqlSession.selectList("blogXml.postList");
 	}

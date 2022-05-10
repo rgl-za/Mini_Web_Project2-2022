@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cateXml">
+	<!-- 쿼리문 작성 -->
+	
+<!-- 파라미터 타입 필요한지???? -->
+	<select id="cateList" parameterType="com.javaex.vo.CateVo"
+		resultType="catelist">
+		select catename 
+		from category
+		order by regdate desc;
+	</select>
+	
+	<insert id="insertCate" parameterType="com.javaex.vo.CateVo">
+		insert into category 
+		values(seq_category_no.nextval, #{id, jdbcType=VARCHAR}, #{cateName, jdbcType=VARCHAR}, #{description, jdbcType=VARCHAR}, sysdate)
+	</insert>
+	
+	
+	
+</mapper>

@@ -8,6 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 		order by regdate desc
 	</select>
 	
+	
 	<insert id="insertBlog" parameterType="com.javaex.vo.BlogVo">
 		insert into blog values (#{id, jdbcType=VARCHAR}, #{blogTitle, jdbcType=VARCHAR}, #{logoFile, jdbcType=VARCHAR})
 	</insert>

@@ -24,7 +24,7 @@
 					</c:when>
 					<c:otherwise>
 						<li><a href="">로그아웃</a></li>
-						<li><a href="${authUser.id}/admin/basic">내블로그 관리</a></li>
+						<li><a href="/jblog/${authUser.id}/admin/basic">내블로그 관리</a></li>
 					</c:otherwise>
 				</c:choose>		
 			</ul>
@@ -35,8 +35,8 @@
 			<div id="content" class="full-screen">
 				<ul class="admin-menu">
 					<li class="selected"><a href="">기본설정</a></li>
-					<li><a href="/${authUser.id}/admin/category">카테고리</a></li>
-					<li><a href="/${authUser.id}/admin/write">글작성</a></li>
+					<li><a href="/jblog/${authUser.id}/admin/category">카테고리</a></li>
+					<li><a href="/jblog/${authUser.id}/admin/write">글작성</a></li>
 				</ul>
 				
 				<form action="" method="">

@@ -14,7 +14,7 @@ public class CateDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<CateVo> cateList(CateVo cateVo){
+	public List<CateVo> cateList(){
 		System.out.println("---> sqlSession.selectList()");
 		System.out.println(sqlSession);
 		return sqlSession.selectList("cateXml.cateList");

@@ -76,7 +76,7 @@
 			<h2>카테고리</h2>
 			<ul>
 				<c:forEach items="${catelist}" var="catelist">
-					<li><a href="">${catelist.name}</a></li>
+					<li><a href="">${catelist.cateName}</a></li>
 				</c:forEach>
 			</ul>
 			

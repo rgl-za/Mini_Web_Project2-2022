@@ -14,13 +14,16 @@ public class CateDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<CateVo> cateList(){
+	public List<CateVo> cateList(String id){
 		System.out.println("---> sqlSession.selectList()");
-		System.out.println(sqlSession);
-		return sqlSession.selectList("cateXml.cateList");
+		return sqlSession.selectList("cateXml.cateList", id);
 	}
 	
 	public void insertCate(CateVo cateVo) {
 		sqlSession.insert("cateXml.insertCate", cateVo);		
+	}
+
+	public void deleteCate(int cateNo) {
+		sqlSession.delete("cateXml.deleteCate", cateNo);
 	}
 }

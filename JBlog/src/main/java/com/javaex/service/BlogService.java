@@ -23,7 +23,17 @@ public class BlogService {
 		return blogDao.contentList();
 	}
 	
-	public List<CateVo> cateList(){
-		return cateDao.cateList();
+	public List<CateVo> cateList(String id){
+		return cateDao.cateList(id);
+	}
+	
+	// 블로그 카테고리 추가
+	public void insertCate(CateVo cateVo) {
+		cateDao.insertCate(cateVo);
+	}
+	
+	// 블로그 카테고리 삭제
+	public void deleteCate(int cateNo) {
+		cateDao.deleteCate(cateNo);
 	}
 }

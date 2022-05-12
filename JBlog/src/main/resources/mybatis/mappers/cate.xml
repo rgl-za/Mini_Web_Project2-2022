@@ -2,20 +2,28 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cateXml">
 	<!-- 쿼리문 작성 -->
-	
-<!-- 파라미터 타입 필요한지???? -->
-	<select id="cateList" parameterType="com.javaex.vo.CateVo"
+
+	<select id="cateList" parameterType="String"
 		resultType="catelist">
-		select catename 
-		from category
-		order by regdate desc
+		SELECT *
+		FROM CATEGORY c2,(SELECT c.CATENO,  count(p.CATENO) postcount
+						FROM CATEGORY c LEFT OUTER JOIN POST p
+						ON c.CATENO = p.CATENO
+						WHERE id = #{id}
+						GROUP BY c.CATENO) p2
+		WHERE c2.CATENO = p2.CATENO
 	</select>
-	
+
 	<insert id="insertCate" parameterType="com.javaex.vo.CateVo">
-		insert into category 
-		values(seq_category_no.nextval, #{id, jdbcType=VARCHAR}, #{cateName, jdbcType=VARCHAR}, #{description, jdbcType=VARCHAR}, sysdate)
+		insert into category
+		values(seq_category_no.nextval, #{id, jdbcType=VARCHAR}, 
+				#{cateName, jdbcType=VARCHAR}, #{description, jdbcType=VARCHAR}, sysdate)
 	</insert>
 	
-	
-	
+	<delete id="deleteCate" parameterType="int">
+		delete from category where cateno = #{cateNo}
+	</delete>
+
+
+
 </mapper>

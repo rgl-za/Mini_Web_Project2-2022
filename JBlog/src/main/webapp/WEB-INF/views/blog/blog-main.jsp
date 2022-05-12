@@ -59,7 +59,7 @@
 
 				<ul class="blog-list">
 					<c:forEach items="${postlist}" var="postlist">
-						<li><a href="">${postlist.posttitle }</a> <span>${postlist.regdate }</span></li>
+						<li><a href="">${postlist.postTitle }</a> <span>${postlist.regDate }</span></li>
 					</c:forEach>
 				</ul>
 			</div>

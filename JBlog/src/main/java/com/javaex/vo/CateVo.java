@@ -13,4 +13,6 @@ public class CateVo {
 	
 	private int userNo;
 	
+	private int postCount;
+	
 }

@@ -22,5 +22,4 @@ public class BlogDao {
 	public void insertBlog(BlogVo blogVo) {
 		sqlSession.insert("blogXml.insertBlog", blogVo);
 	}
-	
 }

@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.javaex.service.BlogService;
 import com.javaex.vo.CateVo;
+import com.javaex.vo.PostVo;
 import com.javaex.vo.UserVo;
 
 @Controller
@@ -21,7 +22,7 @@ public class MainController {
 	@Autowired
 	private BlogService blogService;
 	
-	/*JBlog 메인 폼 출력*/
+	/*JBlog 硫붿씤 �뤌 異쒕젰*/
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String main() {
 		return "main/index";
@@ -47,6 +48,7 @@ public class MainController {
 			mav.setViewName("blog/admin/blog-admin-cate");
 		}
 		else{
+			mav.addObject("catelist", blogService.cateList(id));
 			mav.setViewName("blog/admin/blog-admin-write");
 		}
 		return mav;
@@ -69,6 +71,12 @@ public class MainController {
 		}
 
 		return false;
+	}
+	
+	@RequestMapping(value="/write/insert", method=RequestMethod.POST)
+	public String insertWrite(@ModelAttribute PostVo postVo, HttpSession session) {
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		return "redirect:/"+authUser.getId()+"/admin/category";
 	}
 	
 }

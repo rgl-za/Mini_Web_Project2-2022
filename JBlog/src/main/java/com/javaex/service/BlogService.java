@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.javaex.dao.BlogDao;
 import com.javaex.dao.CateDao;
 import com.javaex.vo.BlogVo;
 import com.javaex.vo.CateVo;
+import com.javaex.vo.PostVo;
 
 @Service
 public class BlogService {
@@ -35,5 +35,10 @@ public class BlogService {
 	// 블로그 카테고리 삭제
 	public void deleteCate(int cateNo) {
 		cateDao.deleteCate(cateNo);
+	}
+	
+	// 블로그 글 작성
+	public void write(PostVo postVo) {
+		
 	}
 }

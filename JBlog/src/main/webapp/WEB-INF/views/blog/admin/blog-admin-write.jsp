@@ -45,14 +45,14 @@
 				</ul>
 
 
-				<form action="/jblog/write/insert" method="post">
+				<form action="/jblog/${authUser.id}/write/insert" method="post">
 					<table class="admin-cat-write">
 						<tr>
 							<td class="t">제목</td>
 							<td><input type="text" size="60" name="postTitle"> 
 								<select name="cateNo">
 									<c:forEach items="${catelist }" var="catelist">
-										<option value="${catelist.cateName }">${catelist.cateName }</option>
+										<option value="${catelist.cateNo }">${catelist.cateName }</option>
 									</c:forEach>
 								</select>
 							</td>

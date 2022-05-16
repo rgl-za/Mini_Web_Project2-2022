@@ -3,9 +3,31 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="postXml">
 
-	<insert id="insertCate" parameterType="com.javaex.vo.CateVo">
+	<select id="postList" parameterType="com.javaex.vo.BlogVo"
+		resultType="postlist">
+		select *
+		from post
+		order by regdate desc
+	</select>
+	
+	<select id="getPostOne" parameterType="String"
+		resultType="postlist">
+		select *
+		from post
+		where postNo = #{postNo}
+	</select>
+	
+	<select id="getPostList" parameterType="String"
+		resultType="postlist">
+		select *
+		from post
+		where cateNo = #{cateNo}
+	</select>
+
+	<insert id="insertPost" parameterType="com.javaex.vo.PostVo">
 		insert into post
-		values(seq_post_no.nextval, , sysdate)
+		values(seq_post_no.nextval, #{cateNo}, #{postTitle}, #{postContent},
+		sysdate)
 	</insert>
 
 </mapper>

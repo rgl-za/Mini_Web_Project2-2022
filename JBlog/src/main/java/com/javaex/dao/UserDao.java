@@ -19,7 +19,7 @@ public class UserDao {
 	public int insertUserVo(UserVo userVo) {
 		System.out.println(userVo);
 		sqlSession.insert("userXml.insertUserVo", userVo);
-		return sqlSession.selectOne("userXml.selectUserNo", userVo);
+		return sqlSession.selectOne("userXml.selectUserNo", userVo.getId());
 	}
 
 	public UserVo selectUserVo(String id) {

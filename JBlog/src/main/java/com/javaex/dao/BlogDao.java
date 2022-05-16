@@ -16,7 +16,7 @@ public class BlogDao {
 	
 	public List<BlogVo> contentList(){
 		System.out.println(sqlSession);
-		return sqlSession.selectList("blogXml.postList");
+		return sqlSession.selectList("postXml.postList");
 	}
 	
 	public void insertBlog(BlogVo blogVo) {

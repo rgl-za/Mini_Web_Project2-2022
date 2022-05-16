@@ -36,6 +36,22 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/{id}/{postNo}")
+	public ModelAndView post(@PathVariable("id") String id, @PathVariable("postNo") String postNo, ModelAndView mav) {
+		mav.addObject("postOne", blogService.getPostOne(postNo));
+		mav.addObject("postlist", blogService.contentList());
+		mav.addObject("catelist", blogService.cateList(id));
+		mav.setViewName("blog/blog-main");
+		return mav;
+	}
+	
+	@RequestMapping("/{id}/{cateNo}")
+	public ModelAndView cate(@PathVariable("id") String id, @PathVariable("cateNo") String cateNo, ModelAndView mav) {
+		mav.addObject("postlist", blogService.getPostList(cateNo));
+		mav.addObject("catelist", blogService.cateList(id));
+		return mav;
+	}
+	
 	
 	@RequestMapping(value="/{id}/admin/{url}")
 	public ModelAndView blog(@PathVariable String id, @PathVariable("url") String url, ModelAndView mav) {
@@ -72,11 +88,11 @@ public class MainController {
 
 		return false;
 	}
-	
-	@RequestMapping(value="/write/insert", method=RequestMethod.POST)
-	public String insertWrite(@ModelAttribute PostVo postVo, HttpSession session) {
-		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		return "redirect:/"+authUser.getId()+"/admin/category";
+
+	@RequestMapping(value="/{id}/write/insert", method=RequestMethod.POST)
+	public String insertWrite(@PathVariable String id, @ModelAttribute PostVo postVo) {
+		blogService.write(postVo);
+		return "redirect:/"+id+"/admin/write";
 	}
 	
 }

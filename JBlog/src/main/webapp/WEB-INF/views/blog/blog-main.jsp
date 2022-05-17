@@ -15,6 +15,8 @@
 	src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 $(document).ready(function (){
+	str = "<c:forEach items='${postlist}' var='postlist'><li><a href='/jblog/${authUser.id }/${postlist.postNo }'>${postlist.postTitle }</a> <span>${postlist.regDate }</span></li></c:forEach>";
+	$('.blog-list li').replaceWith(str);
 	$('.cate').click(function(){
 		var cateNo = $(this).parent().val();
 		$.ajax({	
@@ -25,12 +27,20 @@ $(document).ready(function (){
 			},
 			dataType: 'json',
 			success: function(data){
-				//str = "<c:forEach items="+ data + " var='postlist'>";
-				//str += "<li><a href='/jblog/" + id + "/" + data.postNo + "'>" + data.postTitle + "</a><span>" + data.regDate + "</span></li>"
-				str += "<li><a href=''>12</a></li>";
-				//str += "</c:forEach>"; 
-			alert(str);
-				$('.blog-list').replaceWith('<span>1</span>');
+				str = "";
+				for(var i = 0; i < data.length; i++){
+					console.log(data[i]);
+					console.log(data[i].postNo);
+					str += "<li><a href='/jblog/";
+					str += data[i].postNo;
+					str += "'>";
+					str += data[i].postTitle;
+					str += "</a><span>";
+					str += data[i].regDate;
+					str += "</span></li>";
+				} 
+console.log(str);
+				$('.blog-list li').replaceWith(str);
 			},
 			error: function() { alert("에러 발생");}
 		});
@@ -84,9 +94,8 @@ $(document).ready(function (){
 				</div>
 
 				<ul class="blog-list">
-					<c:forEach items="${postlist}" var="postlist">
-						<li><a href="/jblog/${authUser.id }/${postlist.postNo }">${postlist.postTitle }</a> <span>${postlist.regDate }</span></li>
-					</c:forEach>
+				<li></li>
+
 				</ul>
 			</div>
 		</div>

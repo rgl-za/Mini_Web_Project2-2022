@@ -7,17 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.javaex.dao.BlogDao;
 import com.javaex.dao.CateDao;
-<<<<<<< HEAD
+
 import com.javaex.dao.UserDao;
-import com.javaex.vo.BlogVo;
-import com.javaex.vo.CateVo;
 import com.javaex.vo.UserVo;
-=======
+
 import com.javaex.dao.PostDao;
 import com.javaex.vo.BlogVo;
 import com.javaex.vo.CateVo;
 import com.javaex.vo.PostVo;
->>>>>>> 850e78f322f39bec25982cc396c364f91c85bb45
 
 @Service
 public class BlogService {

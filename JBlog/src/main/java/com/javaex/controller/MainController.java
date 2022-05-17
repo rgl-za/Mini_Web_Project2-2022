@@ -54,7 +54,6 @@ public class MainController {
 	
 	
 	@RequestMapping(value="/{id}/admin/{url}")
-<<<<<<< HEAD
 	   public ModelAndView blog(@PathVariable String id, @PathVariable("url") String url, ModelAndView mav) {
 	      System.out.println(url);
 	      if(url.equals("basic")) {
@@ -63,31 +62,15 @@ public class MainController {
 	         
 	      }
 	      else if(url.equals("category")) {
-	         // mav.addObject("catelist", blogService.cateList(id));
+	         mav.addObject("catelist", blogService.cateList(id));
 	         mav.setViewName("blog/admin/blog-admin-cate");
 	      }
 	      else{
-	         // mav.addObject("catelist", blogService.cateList(id));
+	         mav.addObject("catelist", blogService.cateList(id));
 	         mav.setViewName("blog/admin/blog-admin-write");
 	      }
 	      return mav;
 	   }
-=======
-	public ModelAndView blog(@PathVariable String id, @PathVariable("url") String url, ModelAndView mav) {
-		System.out.println(url);
-		if(url.equals("basic")) {
-			mav.setViewName("blog/admin/blog-admin-basic");
-		}
-		else if(url.equals("category")) {
-			mav.addObject("catelist", blogService.cateList(id));
-			mav.setViewName("blog/admin/blog-admin-cate");
-		}
-		else{
-			mav.addObject("catelist", blogService.cateList(id));
-			mav.setViewName("blog/admin/blog-admin-write");
-		}
-		return mav;
-	}
 	
 	@RequestMapping(value="/category/insert", method=RequestMethod.POST)
 	public String insertCate(@ModelAttribute CateVo cateVo, HttpSession session) {
@@ -113,6 +96,5 @@ public class MainController {
 		blogService.write(postVo);
 		return "redirect:/"+id+"/admin/write";
 	}
->>>>>>> 850e78f322f39bec25982cc396c364f91c85bb45
 	
 }

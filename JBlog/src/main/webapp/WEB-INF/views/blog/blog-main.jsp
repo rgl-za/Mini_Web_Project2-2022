@@ -68,27 +68,7 @@ $(document).ready(function (){
 		<div id="wrapper">
 			<div id="content">
 				<div class="blog-content">
-<<<<<<< HEAD
-					
-					<%--  <c:when test="">
-						<!-- 등록된 글이 없는경우 -->
-						<!-- 
-							<h4>등록된 글이 없습니다.</h4>
-							<p></p>
-						 -->
-					</c:when>
-					 <c:otherwise>
-					 	<c:forEach items="" var="">
-							<h4>어벤져스: 인피니티 워</h4>
-							<p>
-								새로운 조합을 이룬 어벤져스, <br> 역대 최강 빌런 타노스에 맞서 세계의 운명이 걸린<br>
-								인피니티 스톤을 향한 무한 대결이 펼쳐진다! <br> <br> 4월, 마블의 클라이맥스를
-								목격하라!<br>
-							</p>
-						</c:forEach>
-					 </c:otherwise --%>
-					 
-=======
+
 					<c:choose>
 					<c:when test="${not empty postOne }">
 					<h4>${postOne.postTitle }</h4>
@@ -103,16 +83,11 @@ $(document).ready(function (){
 							<p></p>
 						</c:otherwise>
 					</c:choose>
->>>>>>> 850e78f322f39bec25982cc396c364f91c85bb45
 				</div>
 
 				<ul class="blog-list">
 					<c:forEach items="${postlist}" var="postlist">
-<<<<<<< HEAD
-						<li><a href="">${postlist.postTitle }</a> <span>${postlist.regDate }</span></li>
-=======
 						<li><a href="/jblog/${authUser.id }/${postlist.postNo }">${postlist.postTitle }</a> <span>${postlist.regDate }</span></li>
->>>>>>> 850e78f322f39bec25982cc396c364f91c85bb45
 					</c:forEach>
 				</ul>
 			</div>

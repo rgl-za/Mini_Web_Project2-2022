@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<<<<<<< HEAD
 <mapper namespace="blogXml">
 
 	<select id="postList" parameterType="com.javaex.vo.BlogVo" resultType="postlist">
@@ -9,14 +8,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 		order by regDate desc
 	</select>
 	
-	<!-- <insert id="insertBlog" parameterType="com.javaex.vo.BlogVo">
-=======
-<mapper namespace="blogXml">	
-	
-	<insert id="insertBlog" parameterType="com.javaex.vo.BlogVo">
->>>>>>> 850e78f322f39bec25982cc396c364f91c85bb45
-		insert into blog values (#{id, jdbcType=VARCHAR}, #{blogTitle, jdbcType=VARCHAR}, #{logoFile, jdbcType=VARCHAR})
-	</insert> -->
 	<update id="insertBlog" parameterType="com.javaex.vo.BlogVo">
 		update blog
 		set blogTitle = #{blogTitle}, logoFile = #{logoFile}

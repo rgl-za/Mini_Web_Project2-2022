@@ -19,6 +19,7 @@
 		<mapper resource="mybatis/mappers/user.xml" />
 		<mapper resource="mybatis/mappers/blog.xml" />
 		<mapper resource="mybatis/mappers/cate.xml" />
+		<mapper resource="mybatis/mappers/post.xml" />
 	</mappers>
 
 </configuration>

@@ -32,6 +32,9 @@ $(document).ready(function (){
 				if(isExist == false){
 					alert("삭제할 수 없습니다.");
 				}
+				else {
+					$("td:contains("+ td.eq(0).text()+ ")").parent().remove();
+				}
 			},
 			error: function() { alert("에러 발생");}
 		});
@@ -55,7 +58,7 @@ $(document).ready(function (){
 						<li><a href="/jblog/user/login">로그인</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="">로그아웃</a></li>
+						<li><a href="/jblog/user/logout">로그아웃</a></li>
 						<li><a href="/jblog/${authUser.id}/admin/basic">내블로그 관리</a></li>
 					</c:otherwise>
 				</c:choose>
@@ -81,11 +84,11 @@ $(document).ready(function (){
 							<th>삭제</th>
 						</tr>
 					</thead>
-					<tbody id=cateList>
-						<c:forEach items="${catelist }" var="catelist" varStatus="status">
+					<tbody id="cateList">
+						<c:forEach items="${catelist }" var="catelist">
 							<tr>
 								<td>${catelist.cateNo }</td>
-								<td>${catelist.cateName }</td>
+								<td>${catelist.cateName }</td>	
 								<td>${catelist.postCount }</td>
 								<td>${catelist.description }</td>
 								<td><img src='${pageContext.request.contextPath}/assets/images/delete.jpg'></td>

@@ -15,24 +15,22 @@
 	src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 $(document).ready(function (){
-	$('#cate li').on('click', function(){
-		var cateNo = $('.cate').val();
-		var id = ${authUser.id };
-		alert(cateNo);
+	$('.cate').click(function(){
+		var cateNo = $(this).parent().val();
 		$.ajax({	
 			type: 'POST',
-			url: '/jblog/{id}/{cateNo}',
+			url: '/jblog/cateNo',
 			data: {
-				cateNo: cateNo,
-				id: id
+				cateNo: cateNo
 			},
 			dataType: 'json',
 			success: function(data){
-				str = "<c:forEach items="+ data.postlist + " var='postlist'>";
-				str += "<li><a href='/jblog/" + id + "/" + data.postlist.postNo + "'>" + data.postlist.postTitle + "</a><span>" + data.postlist.regDate + "</span></li>";
-				str += "</c:forEach>";
-				
-				$('.blog-list').append(str);
+				//str = "<c:forEach items="+ data + " var='postlist'>";
+				//str += "<li><a href='/jblog/" + id + "/" + data.postNo + "'>" + data.postTitle + "</a><span>" + data.regDate + "</span></li>"
+				str += "<li><a href=''>12</a></li>";
+				//str += "</c:forEach>"; 
+			alert(str);
+				$('.blog-list').replaceWith('<span>1</span>');
 			},
 			error: function() { alert("에러 발생");}
 		});
@@ -102,10 +100,10 @@ $(document).ready(function (){
 
 		<div id="navigation">
 			<h2>카테고리</h2>
-			<ul id="cate">
+			<ul>
 				<c:forEach items="${catelist}" var="catelist">
-					<%-- <li><a href="/jblog/cate/${authUser.id }/${catelist.cateNo }">${catelist.cateName}</a></li> --%>
-					<li class="cate" value="${catelist.cateNo }">${catelist.cateName}</li>
+					<li class="cateNo" value="${catelist.cateNo }"><a href="javascript:void(0);" class="cate">${catelist.cateName}</a></li>
+					<%-- <li class="cate" value="${catelist.cateNo }">${catelist.cateName}</li> --%>
 				</c:forEach>
 			</ul>
 

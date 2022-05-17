@@ -1,5 +1,7 @@
 package com.javaex.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -45,11 +48,11 @@ public class MainController {
 		return mav;
 	}
 	
-	@RequestMapping("/{id}/{cateNo}")
-	public ModelAndView cate(@PathVariable("id") String id, @PathVariable("cateNo") String cateNo, ModelAndView mav) {
-		mav.addObject("postlist", blogService.getPostList(cateNo));
-		mav.addObject("catelist", blogService.cateList(id));
-		return mav;
+	@ResponseBody
+	@RequestMapping(value = "/cateNo", method=RequestMethod.POST)
+	public List<PostVo> cate(@ModelAttribute CateVo cateVo) {
+		System.out.println(cateVo.getCateNo());
+		return blogService.getPostList(cateVo.getCateNo());
 	}
 	
 	

@@ -58,7 +58,7 @@ public class BlogService {
 		return postDao.getPostOne(postNo);
 	}
 
-	public List<PostVo> getPostList(String cateNo) {
+	public List<PostVo> getPostList(int cateNo) {
 		return postDao.getPostList(cateNo);
 	}
 	

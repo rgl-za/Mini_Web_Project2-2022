@@ -61,7 +61,7 @@ public class FileController {
 			System.out.println(formatName);
 			MediaType mType = MediaUtil.getMediaType(formatName);
 			HttpHeaders headers = new HttpHeaders();
-			in = new FileInputStream("/Users/USER/Documents/GitHub/Mini_Web_Project2-2022/JBlog/src/main/resources/upload/" + fileName);
+			in = new FileInputStream("/Users/jihyeonjeong/Mini_Web_Project2-2022/JBlog/src/main/resources/upload/" + fileName);
 			if(mType != null) {
 				headers.setContentType(mType);
 			}

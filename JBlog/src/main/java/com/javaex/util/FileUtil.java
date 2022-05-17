@@ -17,7 +17,7 @@ public class FileUtil {
 		// String saveDir = "D:\\javaStudy\\upload";
 //		String saveDir = "/Users/jeongjonguk/eclipse-workspace/jblog/src/main/resources/upload";
 
-		String saveDir = "/Users/USER/Documents/GitHub/Mini_Web_Project2-2022/JBlog/src/main/resources/upload";
+		String saveDir = "/Users/jihyeonjeong/Mini_Web_Project2-2022/JBlog/src/main/resources/upload/";
 		// 원파일이름
 		String orgName = file.getOriginalFilename();
 

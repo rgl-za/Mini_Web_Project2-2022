@@ -39,14 +39,11 @@ public class MainController {
 		return mav;
 	}
 	
-//	@RequestMapping(value="/{id}/{postNo}")
-//	public ModelAndView post(@PathVariable("id") String id, @PathVariable("postNo") String postNo, ModelAndView mav) {
-//		mav.addObject("postOne", blogService.getPostOne(postNo));
-//		mav.addObject("postlist", blogService.contentList());
-//		mav.addObject("catelist", blogService.cateList(id));
-//		mav.setViewName("blog/blog-main");
-//		return mav;
-//	}
+	@ResponseBody
+	@RequestMapping(value="/postNo")
+	public PostVo post(@ModelAttribute PostVo postVo) {
+		return blogService.getPostOne(postVo.getPostNo());
+	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/cateNo", method=RequestMethod.POST)
@@ -60,7 +57,7 @@ public class MainController {
 	   public ModelAndView blog(@PathVariable String id, @PathVariable("url") String url, ModelAndView mav) {
 	      System.out.println(url);
 	      if(url.equals("basic")) {
-	         mav.addObject("settingBlog", blogService.settingBlog(id));
+	    	  mav.addObject("settingBlog", blogService.settingBlog(id));
 	    	  mav.setViewName("blog/admin/blog-admin-basic");
 	         
 	      }

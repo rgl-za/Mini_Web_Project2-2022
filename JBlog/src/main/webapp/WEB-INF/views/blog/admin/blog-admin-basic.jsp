@@ -101,11 +101,7 @@ $(document).ready(function (){
 						</tr>
 						<tr>
 							<td class="t">로고이미지</td>
-<<<<<<< HEAD
-							<td class="img"><img src="${pageContext.request.contextPath }/upload/${settingBlog.logoFile}"></td>
-=======
-							<td class="img"><img src="${pageContext.request.contextPath}/upload/${settingBlog.logoFile}"></td>
->>>>>>> bc5b8728ea2bcc1b05aa7cd9b4822f4b89d8dcfa
+							<td class="img"><img src="/jblog/upload/displayFile?fileName=${settingBlog.logoFile}"></td>
 							
 						</tr>
 						<tr>

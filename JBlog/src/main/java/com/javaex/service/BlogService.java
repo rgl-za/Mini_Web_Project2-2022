@@ -54,7 +54,7 @@ public class BlogService {
 	}
 	
 	// 블로그 포스트 리스트 클릭 시 해당 데이터 조회
-	public PostVo getPostOne(String postNo) {
+	public PostVo getPostOne(int postNo) {
 		return postDao.getPostOne(postNo);
 	}
 

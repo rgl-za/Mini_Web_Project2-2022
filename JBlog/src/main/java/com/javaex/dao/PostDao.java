@@ -18,7 +18,7 @@ public class PostDao {
 		sqlSession.insert("postXml.insertPost", postVo);
 	}
 
-	public PostVo getPostOne(String postNo) {
+	public PostVo getPostOne(int postNo) {
 		return sqlSession.selectOne("postXml.getPostOne", postNo);
 	}
 	

@@ -15,8 +15,9 @@
 	src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 $(document).ready(function (){
-	str = "<c:forEach items='${postlist}' var='postlist'><li><a href='/jblog/${authUser.id }/${postlist.postNo }'>${postlist.postTitle }</a> <span>${postlist.regDate }</span></li></c:forEach>";
-	$('.blog-list li').replaceWith(str);
+	str = "<c:forEach items='${postlist}' var='postlist'><li class='cateNo' value='${catelist.cateNo }'><a href='javascript:void(0);' class='post'>${postlist.postTitle }</a> <span>${postlist.regDate }</span></li></c:forEach>";
+	$('#test').html(str);
+	
 	$('.cate').click(function(){
 		var cateNo = $(this).parent().val();
 		$.ajax({	
@@ -28,19 +29,39 @@ $(document).ready(function (){
 			dataType: 'json',
 			success: function(data){
 				str = "";
+				$('.blog-list li').empty();
+				console.log($('.blog-list li').html());
 				for(var i = 0; i < data.length; i++){
 					console.log(data[i]);
 					console.log(data[i].postNo);
-					str += "<li><a href='/jblog/";
-					str += data[i].postNo;
-					str += "'>";
+					str += "<li class='cateNo' value='${";
+					str += data[i].cateNo; 
+					str += "}'><a href='javascript:void(0);' class='post'>";
 					str += data[i].postTitle;
 					str += "</a><span>";
 					str += data[i].regDate;
 					str += "</span></li>";
 				} 
-console.log(str);
-				$('.blog-list li').replaceWith(str);
+				console.log(str);
+				$('#test').html(str);
+				console.log($('#test').html());
+			},
+			error: function() { alert("에러 발생");}
+		});
+	});
+	
+	$('.post').click(function(){
+		var postNo = $(this).parent().val();
+		$.ajax({	
+			type: 'POST',
+			url: '/jblog/postNo',
+			data: {
+				postNo: postNo
+			},
+			dataType: 'json',
+			success: function(data){
+				$('.blog-content h4').text(data.postTitle);
+				$('.blog-content p').text(data.postContent);
 			},
 			error: function() { alert("에러 발생");}
 		});
@@ -94,7 +115,7 @@ console.log(str);
 				</div>
 
 				<ul class="blog-list">
-				<li></li>
+				<div id="test"></div>
 
 				</ul>
 			</div>
@@ -103,7 +124,7 @@ console.log(str);
 		<div id="extra">
 			<div class="blog-logo">
 				<img
-					src="${pageContext.request.contextPath}/assets/images/spring-logo.jpg">
+					src="/jblog/upload/displayFile?fileName=${settingBlog.logoFile}">
 			</div>
 		</div>
 

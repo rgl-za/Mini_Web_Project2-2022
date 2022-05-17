@@ -48,13 +48,7 @@ $(document).ready(function (){
 
 		<!-- 블로그 해더 -->
 		<div id="header">
-<<<<<<< HEAD
 			<h1><a href="/jblog/${authUser.id}">${authUser.userName }님의 블로그 입니다.</a></h1>
-=======
-			<h1>
-				<a href="">${authUser.userName }님의 블로그 입니다.</a>
-			</h1>
->>>>>>> 850e78f322f39bec25982cc396c364f91c85bb45
 			<ul>
 				<c:choose>
 					<c:when test="${authUser == null }">

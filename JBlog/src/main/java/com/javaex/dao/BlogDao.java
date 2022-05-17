@@ -19,8 +19,12 @@ public class BlogDao {
 		return sqlSession.selectList("blogXml.postList");
 	}
 	
-	public void insertBlog(BlogVo blogVo) {
+	public int insertBlog(BlogVo blogVo) {
 		sqlSession.insert("blogXml.insertBlog", blogVo);
+		return sqlSession.selectOne("blogXml.selectUserNo", blogVo);
 	}
 	
+	public BlogVo settingBlog(String id){
+		return sqlSession.selectOne("blogXml.selectSetting", id);
+	}
 }

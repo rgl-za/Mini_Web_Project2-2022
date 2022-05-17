@@ -15,7 +15,7 @@
 		
 		<!-- 블로그 해더 -->
 		<div id="header">
-			<h1><a href="">${authUser.userName }님의 블로그 입니다.</a></h1>
+			<h1><a href="/jblog/${authUser.id}">${authUser.userName }님의 블로그 입니다.</a></h1>
 			<ul>
 				<c:choose>
 					<c:when test="${authUser == null }">

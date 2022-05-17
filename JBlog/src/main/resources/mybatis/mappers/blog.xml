@@ -3,14 +3,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 <mapper namespace="blogXml">
 
 	<select id="postList" parameterType="com.javaex.vo.BlogVo" resultType="postlist">
-		select posttitle, regdate 
+		select postTitle, regDate 
 		from post
-		order by regdate desc
+		order by regDate desc
 	</select>
 	
-	
-	<insert id="insertBlog" parameterType="com.javaex.vo.BlogVo">
+	<!-- <insert id="insertBlog" parameterType="com.javaex.vo.BlogVo">
 		insert into blog values (#{id, jdbcType=VARCHAR}, #{blogTitle, jdbcType=VARCHAR}, #{logoFile, jdbcType=VARCHAR})
-	</insert>
+	</insert> -->
+	<update id="insertBlog" parameterType="com.javaex.vo.BlogVo">
+		update blog
+		set blogTitle = #{blogTitle}, logoFile = #{logoFile}
+		where id = #{id}
+	</update>
+	
+	<select id="selectUserNo" parameterType="String" resultType="Integer">
+      select userNo from users where id = #{id}
+   </select>
+   
+   <select id="selectSetting" parameterType="String" resultType="com.javaex.vo.BlogVo">
+   		select * 
+   		from blog
+   		where id = #{id}
+   </select>
 
 </mapper>

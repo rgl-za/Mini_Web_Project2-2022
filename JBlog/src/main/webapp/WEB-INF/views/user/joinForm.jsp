@@ -54,10 +54,8 @@ $(document).ready(function (){
 				<li><a href="">회원가입</a></li>
 
 				<!-- 로그인 후 메뉴 -->
-				<!-- 
 				<li><a href="">로그아웃</a></li>
 				<li><a href="">내블로그</a></li> 
-				-->
  		</ul>
 		
 		<form class="join-form" id="join-form" method="POST" action="/jblog/user/join">

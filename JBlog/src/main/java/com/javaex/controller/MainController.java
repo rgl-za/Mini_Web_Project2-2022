@@ -31,18 +31,22 @@ public class MainController {
 	
 	
 	@RequestMapping(value="/{id}/admin/{url}")
-	public String blog(@PathVariable("url") String url) {
-		System.out.println(url);
-		if(url.equals("basic")) {
-			return "blog/admin/blog-admin-basic";
-		}
-		if(url.equals("category")) {
-			System.out.println(url);
-			return "blog/admin/blog-admin-cate";
-		}
-		else{
-			return "blog/admin/blog-admin-write";
-		}
-	}
+	   public ModelAndView blog(@PathVariable String id, @PathVariable("url") String url, ModelAndView mav) {
+	      System.out.println(url);
+	      if(url.equals("basic")) {
+	         mav.addObject("settingBlog", blogService.settingBlog(id));
+	    	  mav.setViewName("blog/admin/blog-admin-basic");
+	         
+	      }
+	      else if(url.equals("category")) {
+	         // mav.addObject("catelist", blogService.cateList(id));
+	         mav.setViewName("blog/admin/blog-admin-cate");
+	      }
+	      else{
+	         // mav.addObject("catelist", blogService.cateList(id));
+	         mav.setViewName("blog/admin/blog-admin-write");
+	      }
+	      return mav;
+	   }
 	
 }

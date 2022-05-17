@@ -39,14 +39,14 @@ public class MainController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/{id}/{postNo}")
-	public ModelAndView post(@PathVariable("id") String id, @PathVariable("postNo") String postNo, ModelAndView mav) {
-		mav.addObject("postOne", blogService.getPostOne(postNo));
-		mav.addObject("postlist", blogService.contentList());
-		mav.addObject("catelist", blogService.cateList(id));
-		mav.setViewName("blog/blog-main");
-		return mav;
-	}
+//	@RequestMapping(value="/{id}/{postNo}")
+//	public ModelAndView post(@PathVariable("id") String id, @PathVariable("postNo") String postNo, ModelAndView mav) {
+//		mav.addObject("postOne", blogService.getPostOne(postNo));
+//		mav.addObject("postlist", blogService.contentList());
+//		mav.addObject("catelist", blogService.cateList(id));
+//		mav.setViewName("blog/blog-main");
+//		return mav;
+//	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/cateNo", method=RequestMethod.POST)

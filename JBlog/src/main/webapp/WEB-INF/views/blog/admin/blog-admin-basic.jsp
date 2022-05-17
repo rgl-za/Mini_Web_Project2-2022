@@ -101,7 +101,7 @@ $(document).ready(function (){
 						</tr>
 						<tr>
 							<td class="t">로고이미지</td>
-							<td class="img"><img src="../resources/upload/${settingBlog.logoFile}"></td>
+							<td class="img"><img src="${pageContext.request.contextPath }/upload/${settingBlog.logoFile}"></td>
 							
 						</tr>
 						<tr>

@@ -22,7 +22,7 @@ public class PostDao {
 		return sqlSession.selectOne("postXml.getPostOne", postNo);
 	}
 	
-	public List<PostVo> getPostList(String cateNo) {
+	public List<PostVo> getPostList(int cateNo) {
 		return sqlSession.selectList("postXml.getPostList", cateNo);
 	}
 

@@ -20,7 +20,7 @@
 			<c:choose>
 				<c:when test="${empty authUser }">
 					<li><a href="user/login">로그인</a></li>
-					<li><a href="">회원가입</a></li>
+					<li><a href="/jblog/user/join">회원가입</a></li>
 				</c:when>
 
 				<c:otherwise>

@@ -16,15 +16,18 @@ public class BlogDao {
 	
 	public List<BlogVo> contentList(){
 		System.out.println(sqlSession);
-		return sqlSession.selectList("blogXml.postList");
+		return sqlSession.selectList("postXml.postList");
 	}
 	
 	public int insertBlog(BlogVo blogVo) {
 		sqlSession.insert("blogXml.insertBlog", blogVo);
 		return sqlSession.selectOne("blogXml.selectUserNo", blogVo);
 	}
+<<<<<<< HEAD
 	
 	public BlogVo settingBlog(String id){
 		return sqlSession.selectOne("blogXml.selectSetting", id);
 	}
+=======
+>>>>>>> 850e78f322f39bec25982cc396c364f91c85bb45
 }
